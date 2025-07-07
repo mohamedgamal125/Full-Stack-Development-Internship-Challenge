@@ -1,11 +1,15 @@
 package Customer;
 
+import Cart.Cart;
+
 public class Customer {
 
     private double balance;
+    private Cart cart;
 
-    public Customer(double balance) {
+     public Customer(double balance,Cart cart) {
         this.balance = balance;
+        this.cart = cart;
     }
 
     public double getBalance() {
@@ -15,8 +19,12 @@ public class Customer {
     public void deduct(double amount){
         if(amount > balance)
         {
-            throw new Error("invalid amount");
+            throw new IllegalStateException("invalid amount");
         }
         balance -= amount;
+    }
+
+    public Cart getCart() {
+        return cart;
     }
 }

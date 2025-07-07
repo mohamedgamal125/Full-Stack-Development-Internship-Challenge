@@ -14,7 +14,7 @@ public class Cart {
 
     public void add_product(Product product,int quantity){
         if(quantity > product.getQuantity()){
-            throw new Error("Quantity exceeds the available");
+            throw new IllegalStateException("Quantity exceeds the available");
         }
         items.add(new CartItem(product,quantity));
 
